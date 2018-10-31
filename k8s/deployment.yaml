@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: webhook-server
+  template:
+    metadata:
+      labels:
+        component: webhook-server
+    spec:
+      containers:
+      - name: webhook-server
+        imagePullPolicy: Never
+        image: localserver
